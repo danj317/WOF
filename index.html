@@ -111,14 +111,119 @@
   </section>
 </main>
 
+<!-- PERMANENT LYRICS: paste the lyrics between the two marker lines below.
+     If this block has text, it is always shown when the page loads, on every device.
+     If it is empty, the page falls back to whatever was pasted into the box. -->
+<script type="text/plain" id="saved-lyrics">
+This is Wings of Fire				
+					
+Dragonet Prophecy
+Captured by the SkyWing queen
+Killing IceWings, snapping necks
+And Peril turns good 
+
+Riptide, Anemone
+Coral is a crazy queen
+Killer statues, electric eels
+And burning wood 
+
+Missing dragons, sleeping darts
+Magic tunnels, throwing stars
+Glory's queen, Starflight's gone
+Fake dragonets are NightWing pawns 
+
+Eruption, fake prophecy
+Sunny meets with Qibli
+Burn is poisoned, Blister dies
+Thorn is queen, and Blaze survives 
+
+This is Wings of Fire
+It's got a lot of dragons
+And a few assassins
+This is Wings of Fire
+Though it's not on TVs
+It's a great book series 
+
+Mind reading, premonition
+Dragonflame cactus ignition
+Skyflame rocks and murder plots
+Darkstalker's thoughts 
+
+Hailstorm is Pyrite
+Kinkajou's not alright
+Self-denial, Diamond Trial
+Foeslayer is fought 
+
+Peril and Chameleon
+Scarlet threatens her grandkin
+Ruby fights, Ruby wins
+Darkstalker is out again 
+
+Hiding stick and NightWing King
+Plague to kill all the IceWings
+Magic battles, Qibli's rattled
+Eat enchanted strawberries
+
+This is Wings of Fire
+It's got a lot of dragons
+And a few assassins
+This is Wings of Fire
+Though it's not on TVs
+It's a great book series
+ 
+Mind control and flamesilk
+LeafWings haven't been killed
+Sneaking in for Clearsight's book
+Escaping prison through a nook
+ 
+Chrysalis and secret codes
+Queen's power: no one knows
+Lady Jewel, infected eggs
+Hive burns like it's a powder keg
+
+Breath of Evil: dangerous plant
+Fleeing from the continent
+Magic's gone, humans talk
+Dragons have gone into shock
+ 
+Super-secret-stealth team
+Lizard gets a new name
+Venom flies, dragons die
+I hope this silk will cut the vine
+
+This is Wings of Fire
+It's got lots of dragons
+And a few assassins
+This is Wings of Fire
+Though it's not on Netflix
+In our hearts it will go on and on and on and on and on and on and on and on
+ 
+This is Wings of Fire
+It's got a lot of dragons
+And a few assassins
+This is Wings of Fire
+Though it's not on TVs
+It's a great book series
+
+This is Wings of Fire
+It's got a lot of dragons
+And a few assassins
+This is Wings of Fire
+Though it's not on TVs
+It's a great book series
+</script>
+
 <script>
   var box = document.getElementById('lyrics');
   var KEY = 'wof-lyrics', SIZE = 'wof-size';
   var size = 1.25;
+  var builtIn = document.getElementById('saved-lyrics').textContent.trim();
   try {
-    box.value = localStorage.getItem(KEY) || '';
+    box.value = builtIn || localStorage.getItem(KEY) || '';
     size = parseFloat(localStorage.getItem(SIZE)) || size;
-  } catch (e) {}
+  } catch (e) {
+    box.value = builtIn;
+  }
   box.style.fontSize = size + 'rem';
   box.addEventListener('input', function () {
     try { localStorage.setItem(KEY, box.value); } catch (e) {}
